@@ -9,7 +9,8 @@ let noseX3 = 0;
 let noseY3 = 0;
 let noseX4 = 0;
 let noseY4 = 0;
-
+//let noseX5 = 0;
+//let noseY5 = 0;
 
 let eyelX = 0;
 let eyelY = 0;
@@ -26,6 +27,11 @@ let earrX = 0;
 let earrY = 0;
 let earlX = 0;
 let earlY = 0;
+
+let earrX2 = 0;
+let earrY2 = 0;
+let earlX2 = 0;
+let earlY2 = 0;
 
 
 function setup() {
@@ -53,6 +59,9 @@ function gotPoses(poses) {
         let nX4 = poses[0].pose.keypoints[0].position.x;
         let nY4 = poses[0].pose.keypoints[0].position.y - 20;
 
+        //let nX5 = poses[0].pose.keypoints[0].position.x;
+        //let nY5 = poses[0].pose.keypoints[0].position.y + 60;
+
         let elX = poses[0].pose.keypoints[1].position.x;
         let elY = poses[0].pose.keypoints[1].position.y;
         let erX = poses[0].pose.keypoints[2].position.x;
@@ -69,6 +78,11 @@ function gotPoses(poses) {
         let eerX = poses[0].pose.keypoints[4].position.x;
         let eerY = poses[0].pose.keypoints[4].position.y + 35;
 
+        let eelX2 = poses[0].pose.keypoints[3].position.x;
+        let eelY2 = poses[0].pose.keypoints[3].position.y-180; 
+        let eerX2 = poses[0].pose.keypoints[4].position.x-20;
+        let eerY2 = poses[0].pose.keypoints[4].position.y-180;
+
         noseX = lerp(noseX, nX, 0.2);
         noseY = lerp(noseY, nY, 0.2);
 
@@ -80,6 +94,9 @@ function gotPoses(poses) {
 
         noseX4 = lerp(noseX4, nX4, 0.2);
         noseY4 = lerp(noseY4, nY4, 0.2);
+
+        //noseX5 = lerp(noseX5, nX5, 0.2);
+        //noseY5 = lerp(noseY5, nY5, 0.2);
 
         
         eyelX = lerp(eyelX, elX, 0.2);
@@ -99,6 +116,10 @@ function gotPoses(poses) {
         earrX = lerp(earrX, eerX, 0.2);
         earrY = lerp (earrY, eerY, 0.2);
 
+        earlX2 = lerp(earlX2, eelX2, 0.2);
+        earlY2 = lerp (earlY2, eelY2, 0.2);
+        earrX2 = lerp(earrX2, eerX2, 0.2);
+        earrY2 = lerp (earrY2, eerY2, 0.2);
     }
     
 }
@@ -127,6 +148,10 @@ function draw() {
     fill(255,255,255);
     ellipse(noseX4, noseY4, 20, 10);
 
+    //noStroke();
+    //fill(135,0,76,100);
+    //ellipse(noseX5, noseY5, 30, 20);
+
     //ellipse(noseX, noseY, 50);
     //fill (0,0,255);
     noFill();
@@ -151,6 +176,12 @@ function draw() {
 
     fill(255,51,255);
     ellipse(earrX, earrY, 10);
+
+    fill(1,0,0);
+    ellipse(earlX2, earlY2, 110);
+
+    fill(1,0,0);
+    ellipse(earrX2, earrY2, 110);
 
   }
 
